@@ -5,8 +5,14 @@ This lab is about setting up an Active Directory home lab on VirtualBox. For thi
 ### Things needed to do first:
 - Download and install Windows Server 2016 on VirtualBox.
 - By going into settings of "This PC", change the computer name into something simple i.e. Server2016 for convenience.
+
+<p align="center">
+Changing Computer name <br/>
+<img src="https://imgur.com/UtPVhLj" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+
 - From the Server Manager, go to: 'Manage' -> 'add roles and features' -> 'role based or feature based installation' -> 'add active directory domain services'. Then click on 'promote this server to a domain controller'.
-- In the 'Deployment configuration', add a new forest and set the root domain name. Once finished AD users and computers can be accessed.
+- In the 'Deployment configuration', add a new forest and set the root domain name. Once finished, AD users and computers can be accessed.
 
 ### Users on AD users and computers:
 - Any user can be found by right clicking, going into find option and searching in entire directory.
