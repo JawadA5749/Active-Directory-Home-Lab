@@ -8,10 +8,16 @@ This lab is about setting up an Active Directory home lab on VirtualBox. For thi
 
 <p align="center">
 Changing Computer name <br/>
-<img src="https://imgur.com/UtPVhLj" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/UtPVhLj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 
 - From the Server Manager, go to: 'Manage' -> 'add roles and features' -> 'role based or feature based installation' -> 'add active directory domain services'. Then click on 'promote this server to a domain controller'.
+
+<p align="center">
+Changing Computer name <br/>
+<img src="https://imgur.com/a/krm5AmG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+
 - In the 'Deployment configuration', add a new forest and set the root domain name. Once finished, AD users and computers can be accessed.
 
 ### Users on AD users and computers:
