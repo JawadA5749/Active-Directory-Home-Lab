@@ -13,10 +13,7 @@ Changing Computer name <br/>
 
 - From the Server Manager, go to: 'Manage' -> 'add roles and features' -> 'role based or feature based installation' -> 'add active directory domain services'. Then click on 'promote this server to a domain controller'.
 
-<p align="center">
-Changing Computer name <br/>
-<img src="https://imgur.com/a/krm5AmG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
+<img width="781" height="553" alt="Image" src="https://github.com/user-attachments/assets/6f5e2b32-c576-4a28-b484-f24df273deaf" />
 
 - In the 'Deployment configuration', add a new forest and set the root domain name. Once finished, AD users and computers can be accessed.
 
