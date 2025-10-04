@@ -6,22 +6,33 @@ This lab is about setting up an Active Directory home lab on VirtualBox. For thi
 - Download and install Windows Server 2016 on VirtualBox.
 - By going into settings of "This PC", change the computer name into something simple i.e. Server2016 for convenience.
 
-<p align="center">
-Changing Computer name <br/>
-<img src="https://imgur.com/UtPVhLj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
+<img width="913" height="631" alt="Image" src="https://github.com/user-attachments/assets/181b617b-be73-421a-b9d3-ecdb51ed6469" />
 
 - From the Server Manager, go to: 'Manage' -> 'add roles and features' -> 'role based or feature based installation' -> 'add active directory domain services'. Then click on 'promote this server to a domain controller'.
 
 <img width="781" height="553" alt="Image" src="https://github.com/user-attachments/assets/6f5e2b32-c576-4a28-b484-f24df273deaf" />
 
-- In the 'Deployment configuration', add a new forest and set the root domain name. Once finished, AD users and computers can be accessed.
+- In the 'Deployment configuration', add a new forest and set the root domain name (agent.com in this case). Once finished, AD users and computers can be accessed.
+
+<img width="948" height="643" alt="Image" src="https://github.com/user-attachments/assets/e978f2b3-8a8d-403b-a4a4-5671943b597e" />
 
 ### Users on AD users and computers:
 - Any user can be found by right clicking, going into find option and searching in entire directory.
-- To create a new user, simply right click on users and click on New, then Users. 
+- To create a new user, simply right click on users and click on New, then Users.
+
+<img width="803" height="558" alt="Image" src="https://github.com/user-attachments/assets/d8ccfad7-7797-4e94-af30-de3723c64b80" />
+
 - Click on view and then click on advanced features --> helps to find out what folder or what OU or what path a user is part of. To verify, click on the user and go to object tab.
+
+<img width="610" height="277" alt="image" src="https://github.com/user-attachments/assets/721ea5c5-56e8-482f-8a05-6c1848c6a0a2" />
+
+<img width="688" height="580" alt="image" src="https://github.com/user-attachments/assets/bdbcbad4-4866-4ca3-9643-1a3b66a2ce92" />
+
+
 - To make a copy of the Administrator account, go to AD users and computers, click on the Admin account, click on copy, and specify the name of the new account. Name it helpdesk.
+
+<img width="630" height="396" alt="image" src="https://github.com/user-attachments/assets/393c3468-5908-4b77-9f9a-a7f7b65cb139" />
+
 
 ### Setting up Windows 2016 in a virtual environment: 
 - To create a lab environment, give the machine a static IP with the following network settings:
