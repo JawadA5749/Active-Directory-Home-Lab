@@ -42,12 +42,27 @@ This lab is about setting up an Active Directory home lab on VirtualBox. For thi
   - Default gateway: 10.1.10.1
   - Preferred DNS server: 10.1.10.2
   - Alternate DNS server: 10.1.10.1
+
+<img width="407" height="457" alt="image" src="https://github.com/user-attachments/assets/e3a09412-2477-4885-8b7e-2b9ba4896ccc" />
+
+
 - On VirtualBox for server 2016, go to Devices -> Network settings -> and click on Host-only adapter
+
+<img width="556" height="315" alt="image" src="https://github.com/user-attachments/assets/f279cbc3-9ea0-4034-83ce-2beece28e0e3" />
+
 
 ## Install a Windows 10 machine and add it to VirtualBox
 
 - On the newly added windows 10 machine, go to file explorer and right click on 'this pc' and click on manage. Then go to local users and groups; then go to Users. Go to properties of the Administrator account and uncheck "account is disabled" option. Then set a password on it.
+
+<img width="558" height="535" alt="image" src="https://github.com/user-attachments/assets/f1527400-ecaf-40b7-8f91-94bb938a63f9" />
+
+
 - Go to add or remove programs, then optional features, then add a feature. Then click on the RSAT tools options and add them. RSAT allows to have access to AD users and computers on a windows 10 machine.
+
+<img width="734" height="632" alt="image" src="https://github.com/user-attachments/assets/e21f1f4e-bca3-4fca-81ef-b5a0f59cd6e1" />
+
+
 - Change the network settings on the Windows 10 machine with the following settings:
   
     - IP address: 10.1.10.3
@@ -57,22 +72,58 @@ This lab is about setting up an Active Directory home lab on VirtualBox. For thi
 	- Alternate DNS server: 10.1.10.1
   - On virtual box for windows 10, go to Devices -> Network settings -> and click on Host-only adapter
  
+<img width="402" height="456" alt="image" src="https://github.com/user-attachments/assets/b4014236-9569-45bd-a71e-69b538c95036" />
+<img width="558" height="507" alt="image" src="https://github.com/user-attachments/assets/27adefbe-57c5-4c37-a93f-19991bc71160" />
+
+
+
 ### Adding Windows 10 to the Domain:
-- Right-click on 'this pc' and then properties -> Change settings -> Change (for changing name or adding it to a domain): In the 'member of' section, click on Domain and specify the name of the domain that was set up on the server 2016 machine.
+- Right-click on 'this pc' and then properties -> Change settings -> Change (for changing name or adding it to a domain): In the 'member of' section, click on Domain and specify the name of the domain that was set up on the server 2016 machine (agent.com).
+
+<img width="414" height="464" alt="image" src="https://github.com/user-attachments/assets/d4c1ea04-7c10-429c-995b-d43862a5119e" />
+
+
 - To check, click on AD users and computers on the server 2016 box and go to Computers section, and the windows 10 machine should be right there.
+
+<img width="747" height="276" alt="image" src="https://github.com/user-attachments/assets/3db7d739-bb03-49b6-ae14-5535d81de309" />
+
 
 #### On Windows 10:
 - Click on the AD users and computers and right-click on the domain. Go to new and then organizational unit and create a new OU called HR.
+
+<img width="470" height="415" alt="image" src="https://github.com/user-attachments/assets/9c2479a5-977f-4c64-bc70-bd6a4c17642a" />
+
 - Go to users and create a user account called "patty". Move this user to HR OU.
+
+<img width="497" height="228" alt="image" src="https://github.com/user-attachments/assets/71725918-17ec-4bb8-bc2d-72d1f31dee11" />
+
 - Create another OU called IT and add the helpdesk account to the IT OU.
+
+<img width="532" height="235" alt="image" src="https://github.com/user-attachments/assets/78883ac9-45ef-4a32-9783-01f10977c496" />
+
 - Make sure advanced features is enabled on AD users and computers so you can check the Attribute editor option in the properties section of the user (can achieve similar results by using the cmd command: net user 'name' /domain).
+
+<img width="405" height="465" alt="image" src="https://github.com/user-attachments/assets/ec043718-4cb1-4c0d-9383-b94bc293baf7" />
+<img width="792" height="604" alt="image" src="https://github.com/user-attachments/assets/6f4da3f5-eeb7-43d4-97f7-9dd80018e174" />
+
+
 #### Checking policies:
 - Right-click on a user and go to 'All tasks' and then click on 'Resultant Set of Policy (Logging)'. It shows the group policy of that user account.
+
+<img width="839" height="429" alt="image" src="https://github.com/user-attachments/assets/9657d7ea-0a56-4284-9655-dc6b2b583171" />
+
 - From the windows 10 machine, go to Server Manger, then 'Tools', then 'group policy management'. It shows the group policy of the domain controller.
 - From the default domain policy, go to settings to see the policy settings.
-- Right-click on default domain policy and go to Edit. Go to the security settings and then account policy then account lockout policy. Form there you can apply settings for things like account lockout duration, threshold, etc. From the password policy settings, you can apply the settings for password stuff. Can double check for the changes in the default domain policy. 
 
-### Add another Windows 10 (Desktop2) on VirtualBox and add it to the Domain
+<img width="755" height="525" alt="image" src="https://github.com/user-attachments/assets/b262f343-a933-488e-890b-6d84859ed865" />
+
+- Right-click on default domain policy and go to Edit. Go to the security settings and then account policy then account lockout policy. Form there you can apply settings for things like account lockout duration, threshold, etc. From the password policy settings, you can apply the settings for password stuff. Can double check for the changes in the default domain policy.
+
+<img width="787" height="345" alt="image" src="https://github.com/user-attachments/assets/dcf4b1f3-e888-44cf-ac76-0c54c137ff94" />
+<img width="770" height="238" alt="image" src="https://github.com/user-attachments/assets/7bb02826-62c4-4c2f-ab79-776159e49a7b" />
+
+
+### Add another Windows 10 (Desktop2) on VirtualBox and add it to the Domain:
 - Set a static IP with the following network settings:
   
     - IP address: 10.1.10.4
@@ -80,24 +131,50 @@ This lab is about setting up an Active Directory home lab on VirtualBox. For thi
 	- Default gateway: 10.1.10.1
 	- Preferred DNS server: 10.1.10.2
 	- Alternate DNS server: 10.1.10.1
+
+<img width="398" height="457" alt="image" src="https://github.com/user-attachments/assets/79b9b230-4790-4fe7-b298-12489b067da7" />
+
   - On virtual box for Desktop2, go to Devices -> Network settings -> and click on Host-only adapter
- 
+
+<img width="621" height="333" alt="image" src="https://github.com/user-attachments/assets/aff67ca9-cd8f-4ed2-b300-3d3817860a7e" />
+
+
 - Patty user account was created before. Log into Desktop2 as Patty.
 
+<img width="761" height="601" alt="Image" src="https://github.com/user-attachments/assets/f81d9ede-4d82-41d4-a212-80ac99f7e844" />
+
+
 ### Account locked out scenario:
-- To fix this, go to the server 2016 and then go to AD users and computers. Go to the properties of the locked user and click on Account and then click on unlock account. The account can also be disabled by right clicking on the user. Can enable it in the same way. If it needs a password reset, then it can be done so in the same way. If account has expired, you can click on never in the 'Account expires' setting. 
+- To fix this, go to the server 2016 and then go to AD users and computers. Go to the properties of the locked user and click on Account and then click on unlock account.
 
-### Computer somehow getting removed from Domain:
-- In this case, try to locally log in. On the login screen, in the username section, type: ".\administrator" and press enter. Then once logged in, go to properties and click on change settings. Put the computer on the "WORKGROUP" and then back on the domain with the specified domain name.
+<img width="406" height="408" alt="image" src="https://github.com/user-attachments/assets/83cd9ed8-8da8-4cc8-ba23-324ccb4a5e31" />
+
+- The account can also be disabled by right clicking on the user. Can enable it in the same way. If it needs a password reset, then it can be done so in the same way.
+
+<img width="379" height="367" alt="image" src="https://github.com/user-attachments/assets/add05b56-a0ff-4a5a-b019-773cf77b4c42" />
+
+- If account has expired, you can click on 'Never' in the 'Account expires' setting.
+
+<img width="375" height="92" alt="image" src="https://github.com/user-attachments/assets/0a99794c-5268-479c-9013-d743b4764f7b" />
 
 
-### Shares
+### Computer somehow getting removed from Domain scenario:
+- In this case, try to locally log in. On the login screen, in the username section, type: ".\administrator" and press enter.
+
+<img width="511" height="492" alt="image" src="https://github.com/user-attachments/assets/b7bc170f-2b04-448b-8d62-5cab8c7681de" />
+
+- Then once logged in, go to properties from 'This PC' and click on change settings. Put the computer on the "WORKGROUP" and then back on the domain with the specified domain name.
+<img width="410" height="462" alt="image" src="https://github.com/user-attachments/assets/24378ea8-2ea3-44ae-b0a0-268827f5b653" />
+
+<img width="412" height="464" alt="image" src="https://github.com/user-attachments/assets/649512cf-0a00-4ac7-aa5d-aa77ce24801d" />
+
+### Shares:
 - On the server 2016, go to Server Manager and then click on File and Storage Services. Then go to Shares and right click on Shares and click on new share. Keep clicking next and name the share "HR". Complete it by clicking on the next options. Create a "personal" share in the same way. In the C: drive by default it should have shares folder and inside you should see Personal and HR folders.
 - Go to AD users and computers. Right-click on users and then go to "New" and then "Group". The group type should be security and the name should be HR. If you double click on this HR group and then go to "managed by", you can put the name of "helpdesk" in that name section. Make a "personal" group in the same way. Now go to "This pc" and you can go to the properties of HR and personal folders and click on sharing. Copy the network path, and paste it in the description section of the properties of the groups that are in AD users and computers. This is just to label it. Now from AD users and computers, add patty to the "members" section of the HR and personal group.
 - From "This pc", go to the personal folder properties. Go to security and then advanced. Click on disable inheritance. Click on 'Convert inherited permissions into explicit permissions on this object'. Click on "add" and then 'Select a principle'. Type in "helpdesk". Click on "modify" for basic permissions. Type in "personal" in the same process. Now go to sharing in properties and the "personal" should have permission level "read/write". Then click on share. Now do the same thing for the HR one. If this is done correctly, the shared folder should be accessed by patty on her computer (Desktop2) with the network share location. In the file explorer type: "\\server2016\hr". To create a shortcut, you can drag and drop it in the quick access location. To map it, right click on "this pc" and then go to map network drive. Paste the network drive location and the new drive should be there.
 - You can also map a drive from AD. On server 2016, go to AD users and computers and go to the properties of patty and click on profile. In the home folder, click on connect. Type in `\\Server2016\Personal\%username%`. Now it should create a folder for patty. 
 
-### Remote settings
+### Remote settings:
 - In Desktop2 computer, go to properties from "this pc" and then go to remote settings. Enter the helpdesk account's credentials. Click on Allow remote connections to this computer. Open up remote desktop connection on the windows 10 machine (Helpdesk's machine) and enter the IP of desktop2 or the name of the computer which is Desktop2. If the remote desktop doesn't work, may need to do "ipconfig /flushdns" in cmd.
 -  On windows 10 machine, type in \\desktop2\c$ and it should let you in on that user's account. You can upload or delete files remotely that way. 
 
