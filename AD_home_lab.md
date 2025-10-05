@@ -170,13 +170,51 @@ This lab is about setting up an Active Directory home lab on VirtualBox. For thi
 
 ### Shares:
 - On the server 2016, go to Server Manager and then click on File and Storage Services. Then go to Shares and right click on Shares and click on new share. Keep clicking next and name the share "HR". Complete it by clicking on the next options. Create a "personal" share in the same way. In the C: drive by default it should have shares folder and inside you should see Personal and HR folders.
+
+<img width="769" height="520" alt="image" src="https://github.com/user-attachments/assets/9bb2a5f6-7301-4fec-b536-a394c2905419" />
+<img width="784" height="352" alt="image" src="https://github.com/user-attachments/assets/8ea29ede-b9c1-439a-bfea-34fb064a8cf3" />
+
 - Go to AD users and computers. Right-click on users and then go to "New" and then "Group". The group type should be security and the name should be HR. If you double click on this HR group and then go to "managed by", you can put the name of "helpdesk" in that name section. Make a "personal" group in the same way. Now go to "This pc" and you can go to the properties of HR and personal folders and click on sharing. Copy the network path, and paste it in the description section of the properties of the groups that are in AD users and computers. This is just to label it. Now from AD users and computers, add patty to the "members" section of the HR and personal group.
-- From "This pc", go to the personal folder properties. Go to security and then advanced. Click on disable inheritance. Click on 'Convert inherited permissions into explicit permissions on this object'. Click on "add" and then 'Select a principle'. Type in "helpdesk". Click on "modify" for basic permissions. Type in "personal" in the same process. Now go to sharing in properties and the "personal" should have permission level "read/write". Then click on share. Now do the same thing for the HR one. If this is done correctly, the shared folder should be accessed by patty on her computer (Desktop2) with the network share location. In the file explorer type: "\\server2016\hr". To create a shortcut, you can drag and drop it in the quick access location. To map it, right click on "this pc" and then go to map network drive. Paste the network drive location and the new drive should be there.
+
+<img width="727" height="464" alt="image" src="https://github.com/user-attachments/assets/aa50b31e-1ab1-4ec7-b76d-d264a194917e" />
+<img width="401" height="480" alt="image" src="https://github.com/user-attachments/assets/97068961-b08c-4560-b4d7-1b6f0b446aae" />
+<img width="359" height="333" alt="image" src="https://github.com/user-attachments/assets/16a0a9d3-adf6-453f-ac06-95a7e2226569" />
+<img width="406" height="355" alt="image" src="https://github.com/user-attachments/assets/72935060-4a65-4cfa-bc6f-82f94350fed6" />
+<img width="402" height="477" alt="image" src="https://github.com/user-attachments/assets/60b6bcdb-245a-4a3b-b401-e29fef7bcbda" />
+<img width="403" height="478" alt="image" src="https://github.com/user-attachments/assets/7b373363-6dc7-4a8a-89e2-e8bd6253d0b2" />
+
+
+- From "This pc", go to the personal folder properties. Go to security and then advanced. Click on disable inheritance. Click on 'Convert inherited permissions into explicit permissions on this object'. Under Permissions, click on "add" and then 'Select a principle'. Type in "helpdesk". Click on "modify" for basic permissions. Type in "personal" in the same process. Now go to sharing in properties and the "personal" group should have permission level "read/write". Then click on share. Now do the same thing for the 'HR' network share folder. If this is done correctly, the shared folder should be accessed by patty on her computer (Desktop2) with the network share location. In the file explorer type: "\\server2016\hr". To create a shortcut, you can drag and drop it in the quick access location. To map it, right click on "this pc" and then go to map network drive. Paste the network drive location and the new drive should be there.
+
+<img width="761" height="512" alt="image" src="https://github.com/user-attachments/assets/9a336659-3712-4a4b-ac6a-b8f1a854cefc" />
+<img width="465" height="283" alt="image" src="https://github.com/user-attachments/assets/86ad4998-ad43-4dc4-a61d-05623853b2d7" />
+<img width="915" height="593" alt="image" src="https://github.com/user-attachments/assets/2521d716-d781-4d9e-87ee-86251659337f" />
+<img width="616" height="446" alt="image" src="https://github.com/user-attachments/assets/56e9f4f5-93b6-44a3-a660-af21f48cc291" />
+<img width="630" height="451" alt="image" src="https://github.com/user-attachments/assets/4625d2bc-7c75-43c9-a528-85b17c038a26" />
+<img width="784" height="137" alt="image" src="https://github.com/user-attachments/assets/21b6b1ea-f92d-48ed-a775-eada098529c6" />
+<img width="789" height="416" alt="image" src="https://github.com/user-attachments/assets/fcd61674-15de-46e5-b711-9c1d96a5f258" />
+<img width="783" height="585" alt="image" src="https://github.com/user-attachments/assets/2ca4bd9d-02d2-4650-831d-1d14237453dc" />
+<img width="633" height="144" alt="image" src="https://github.com/user-attachments/assets/09dbc723-13fe-4bea-9b17-8f4133eab30d" />
+
+
 - You can also map a drive from AD. On server 2016, go to AD users and computers and go to the properties of patty and click on profile. In the home folder, click on connect. Type in `\\Server2016\Personal\%username%`. Now it should create a folder for patty. 
+
+<img width="408" height="566" alt="image" src="https://github.com/user-attachments/assets/0dc1170b-8372-4eb7-a960-2ff951dc47c1" />
+<img width="701" height="193" alt="image" src="https://github.com/user-attachments/assets/2cfd3f07-83d1-4efc-ad8a-bd4d687253e9" />
 
 ### Remote settings:
 - In Desktop2 computer, go to properties from "this pc" and then go to remote settings. Enter the helpdesk account's credentials. Click on Allow remote connections to this computer. Open up remote desktop connection on the windows 10 machine (Helpdesk's machine) and enter the IP of desktop2 or the name of the computer which is Desktop2. If the remote desktop doesn't work, may need to do "ipconfig /flushdns" in cmd.
--  On windows 10 machine, type in \\desktop2\c$ and it should let you in on that user's account. You can upload or delete files remotely that way. 
+
+<img width="327" height="492" alt="image" src="https://github.com/user-attachments/assets/d8d136cb-aaad-4003-bb1d-c33c07b221be" />
+<img width="418" height="467" alt="image" src="https://github.com/user-attachments/assets/aa2ec65f-5859-40d5-ad35-5b109ae5d2f3" />
+<img width="412" height="253" alt="image" src="https://github.com/user-attachments/assets/3c5971c2-932f-4034-be44-1ef7691bcfdf" />
+<img width="995" height="755" alt="image" src="https://github.com/user-attachments/assets/ee894da0-4287-4931-bda1-0e3df10d7826" />
+<img width="772" height="405" alt="image" src="https://github.com/user-attachments/assets/16cb639d-4ae0-4247-b2f1-fe1c057d0378" />
+<img width="896" height="714" alt="image" src="https://github.com/user-attachments/assets/06bdccc6-0bc8-4c22-8180-c219d5efade4" />
+
+-  On windows 10 machine, type in \\desktop2\c$ and it should allow access to the contents of the C: drive of Desktop2. You can upload or delete files remotely that way. 
+
+<img width="787" height="433" alt="image" src="https://github.com/user-attachments/assets/db76f02f-3f89-4475-a82a-267d47f7e75f" />
 
 ### Group Policy Management
 - On server 2016, from the server manager, go to group policy management. Right-click on group policy objects and click on new. Name it task manager. Now click on the task manager and go to delegation. Add patty to it. Then right-click on the Task manager and click on edit. Under user configuration find System and under it, there should be 'Ctrl+Alt+Del'. From there, Task manager can be removed. Move the Task manager that was created under Group policy objects to the HR OU under the domain. Now right click on the task manager policy and click on Enforced.
