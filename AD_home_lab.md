@@ -217,14 +217,39 @@ This lab is about setting up an Active Directory home lab on VirtualBox. For thi
 <img width="787" height="433" alt="image" src="https://github.com/user-attachments/assets/db76f02f-3f89-4475-a82a-267d47f7e75f" />
 
 ### Group Policy Management
-- On server 2016, from the server manager, go to group policy management. Right-click on group policy objects and click on new. Name it task manager. Now click on the task manager and go to delegation. Add patty to it. Then right-click on the Task manager and click on edit. Under user configuration find System and under it, there should be 'Ctrl+Alt+Del'. From there, Task manager can be removed. Move the Task manager that was created under Group policy objects to the HR OU under the domain. Now right click on the task manager policy and click on Enforced.
-- In the Desktop2 machine, go to cmd and type in "gpupdate /force". You can run "gpresult /r" to see what policies are running on the machine. Can try to double check that task manager is actually removed by typing taskmgr in cmd on Desktop2. You can also generate a report by right clicking on the group policy results and then going to group policy results wizard. Type in the name of the computer and then select a specific user and it should generate a report. Another way to see report is to go to AD users and computers first. Then click on 'All tasks' by right clicking on patty. Click on resultant set of policy wizard. Type in the name of the computer and select patty for user and finish. Now in the resultant set of policy, the configurations or changes can be seen. 
+- On server 2016, from the server manager, go to group policy management. Right-click on group policy objects and click on new. Name it task manager. Now click on the task manager and go to delegation. Add patty to it. Then right-click on the Task manager and click on edit. Under user configuration find System and under it, there should be 'Ctrl+Alt+Del'. From there, Task manager can be removed. Move the 'Task Manager' policy object that was created under Group policy objects to the HR OU under the domain. Now right click on the task manager policy and click on Enforced.
+
+<img width="754" height="531" alt="image" src="https://github.com/user-attachments/assets/9a34606f-3752-4115-b13f-a39cad1c122f" />
+<img width="742" height="325" alt="image" src="https://github.com/user-attachments/assets/3625b9ff-07e0-449f-85a1-d017dfbc04d0" />
+<img width="789" height="431" alt="image" src="https://github.com/user-attachments/assets/f8bdfbea-4199-4337-8076-d10d72e374fa" />
+<img width="689" height="209" alt="image" src="https://github.com/user-attachments/assets/0fbda88c-f0f7-48a3-8002-df1f9c09b9a5" />
+<img width="754" height="383" alt="image" src="https://github.com/user-attachments/assets/b82ce4ea-bce6-44c7-8419-4cffd13b1d70" />
+
+
+- In the Desktop2 machine, go to cmd and type in "gpupdate /force". You can run "gpresult /r" to see what policies are running on the machine (Task Manager group policy object should be listed there). Can try to double check that task manager is actually removed by typing 'taskmgr' in cmd on Desktop2. You can also generate a report by right clicking on the group policy results and then going to group policy results wizard. Type in the name of the computer and then select a specific user and it should generate a report. Another way to see report is to go to AD users and computers first. Then click on 'All tasks' by right clicking on patty. Click on resultant set of policy wizard. Type in the name of the computer and select patty for user and finish. Now in the resultant set of policy, the configurations or changes can be seen. 
+
+<img width="470" height="196" alt="image" src="https://github.com/user-attachments/assets/a3989277-ec20-4e7a-bdb8-5be28ecbab7b" />
+<img width="641" height="670" alt="image" src="https://github.com/user-attachments/assets/6760acff-3ba8-4b6a-b301-289390db6b83" />
+<img width="445" height="260" alt="image" src="https://github.com/user-attachments/assets/09c21e3c-63a8-4c62-a4fd-f25c594da002" />
+
 
 ### Remote App Deployment
 - Install PDQ Deploy and PDQ Inventory on Server 2016.
 - Open up PDQ Inventory and go to 'All computers'. Right-click and click on add computers. Then Desktop2 can be added by name. After Desktop2 is added, you can right-click on it and then click on "Tools". From there, you can send remote commands if needed such as Reboot/Shutdown, Remote Assist, Remote Desktop, Run Command etc.
-- To deploy apps, rigtht-click on Desktop2, and go to "Tools". Then click on PDQ Deploy. That will open up the PDQ Deploy software.
-- Packages can be downloaded from the Package library, and then you can deploy it by right clicking on the package and then clicking on 'Deploy Once'. Then you can add the computer by name (the target where apps will be deployed). After that, click on 'Deploy Now'.
+
+<img width="1019" height="646" alt="image" src="https://github.com/user-attachments/assets/619610df-45c6-460d-a53e-d03caee1feb7" />
+<img width="1016" height="387" alt="image" src="https://github.com/user-attachments/assets/5805c3b1-fa45-4333-ab5b-0009a85c1982" />
+<img width="526" height="159" alt="image" src="https://github.com/user-attachments/assets/e49471d2-0e36-45c9-9c48-a893372f7fc4" />
+<img width="631" height="520" alt="image" src="https://github.com/user-attachments/assets/89bb2f38-5db1-4950-b3c0-f1ff03e6e001" />
+
+
+- To deploy apps, rigtht-click on Desktop2, and go to "Tools". Then click on PDQ Deploy. That will open up the PDQ Deploy software. Packages can be downloaded from the Package library, and then you can deploy it by right clicking on the package and then clicking on 'Deploy Once'. Then you can add the computer by name (the target where apps will be deployed). After that, click on 'Deploy Now'. Once it's deployed, it should show up on the Desktop2 machine (PDFsam Basic was deployed as an example in this case). 
+
+<img width="847" height="629" alt="image" src="https://github.com/user-attachments/assets/bbf16bfe-d18e-4d65-961d-069b98e11ebc" />
+<img width="886" height="529" alt="Image" src="https://github.com/user-attachments/assets/4741e906-9e48-4002-a1e5-9e784e307c20" />
+<img width="487" height="198" alt="image" src="https://github.com/user-attachments/assets/becb842f-2467-4430-9580-2c975ec137ec" />
+<img width="956" height="675" alt="image" src="https://github.com/user-attachments/assets/53597cbb-ecbd-40f1-83bd-00907016fda6" />
+
 
 ### Print Management
 - On server 2016, in the server manager, go to manage, then 'add roles and features'. Select 'print and document services'. Now go to 'Tools' and then 'print management'. Right-click and click on add a printer. Then select install a new driver. Pick the right printer.
