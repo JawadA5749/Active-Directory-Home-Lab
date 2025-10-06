@@ -252,11 +252,40 @@ This lab is about setting up an Active Directory home lab on VirtualBox. For thi
 
 
 ### Print Management
-- On server 2016, in the server manager, go to manage, then 'add roles and features'. Select 'print and document services'. Now go to 'Tools' and then 'print management'. Right-click and click on add a printer. Then select install a new driver. Pick the right printer.
-- When the printer shows up, right-click on it and go to properties and then 'Sharing'. Click on share this printer. Add the HR group to the printer by going to security and advanced settings and then principle. You can also list it in directory to make it appear in AD (it would be in users and computers printer section which can be found by right clicking on the domain).
-- Now on Desktop2, patty can see the printer. It should show up automatically when adding the printer. 
+- On server 2016, in the server manager, go to manage, then 'add roles and features'. Select 'print and document services'. Now go to 'Tools' and then 'print management'. In the 'Printers' section under the 'Print Servers', right-click and click on 'Add a printer'. Then select install a new driver. Pick the right printer.
+
+<img width="782" height="569" alt="image" src="https://github.com/user-attachments/assets/b91c8bd4-cf22-47a2-b2b1-a178e0bf39ff" />
+<img width="420" height="203" alt="image" src="https://github.com/user-attachments/assets/4d013806-9d5c-4941-b208-b1b81039193f" />
+<img width="583" height="448" alt="image" src="https://github.com/user-attachments/assets/9603cc9c-5828-4a8d-9c9c-33d40709199f" />
+<img width="576" height="413" alt="image" src="https://github.com/user-attachments/assets/7028c3b1-7f83-449a-9251-7c4d9c82b53a" />
+<img width="572" height="403" alt="image" src="https://github.com/user-attachments/assets/1bbebd1b-43f2-4a15-8a2d-69c78784edd8" />
+<img width="556" height="140" alt="image" src="https://github.com/user-attachments/assets/54f78f75-560e-428a-b381-62a9a751dd60" />
+
+
+- The printer should show up now; right-click on it and go to properties and then 'Sharing'. Click on share this printer. Add the HR group to the printer by going to the 'Security' tab. You can also list it in directory to make it appear in AD (it would be in users and computers printer section which can be found by right clicking on the domain).
+
+<img width="464" height="507" alt="image" src="https://github.com/user-attachments/assets/ca7a6096-d724-42db-b21b-0b94f612c2da" />
+<img width="464" height="511" alt="image" src="https://github.com/user-attachments/assets/94e4f951-cb7b-4799-9340-6a6a91a43adf" />
+
+- Now on Desktop2, patty can see the printer. It should show up automatically when adding the printer.
+
+<img width="608" height="246" alt="image" src="https://github.com/user-attachments/assets/1aa4ea95-f3ec-4379-be6c-4f12665846b7" />
+
 
 ### Limited Permissioning 
 - On server 2016, go to AD users and computers. Right-click on users and click on new and make a new user. Name him Scott. Create a new OU called consultants and put Scott in there.
-- Now right-click on the domain and then click on 'delegate control'. Add Scott and then give him permission to only 'reset user passwords and force password change at next logon'.
-- To test it, log in as scott in the windows 10 machine. Then go to AD users and computers. Go to the properties of a user and when you go to account, everything should be greyed out except the password change settings. Resetting password is the only thing Scott can do and nothing else. 
+
+<img width="584" height="261" alt="image" src="https://github.com/user-attachments/assets/39843f8a-6362-4c2c-929c-61408381203e" />
+
+- Now right-click on the domain and then click on 'delegate control'. Add Scott and then give him permission to only 'Reset user passwords and force password change at next logon'.
+
+<img width="602" height="510" alt="image" src="https://github.com/user-attachments/assets/f4c87b40-74da-4bd1-bb57-5da23249ba9a" />
+
+<img width="501" height="388" alt="image" src="https://github.com/user-attachments/assets/318954b4-8895-41d7-ac3d-faa6ee4384af" />
+<img width="498" height="388" alt="image" src="https://github.com/user-attachments/assets/7abeaac6-f8a6-4779-8dbd-7b59c59659a0" />
+
+
+- To test it, log in as scott in the windows 10 machine. Then go to AD users and computers. Go to the properties of a user and when you go to account, everything should be greyed out except for the password change settings. Resetting password is the only thing Scott can do and nothing else.
+
+<img width="402" height="493" alt="image" src="https://github.com/user-attachments/assets/19ac4d4e-b586-4fbd-8f89-3e32b88bc623" />
+
